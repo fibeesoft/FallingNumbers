@@ -17,4 +17,9 @@ public class FNMain : MonoBehaviour
     {
         
     }
+
+    public void DoOnButtonClick()
+    {
+        GameManager.Instance.GetButtonValue(FallingNumberValue);
+    }
 }

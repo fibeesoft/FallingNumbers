@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 994525848788385797}
   - component: {fileID: 994525848788385796}
   - component: {fileID: 994525848788385799}
+  - component: {fileID: 651495145}
   m_Layer: 5
   m_Name: FallingNumber
   m_TagString: Untagged
@@ -119,7 +120,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 994525848788385797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 994525848788385799}
+        m_MethodName: DoOnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &994525848788385799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +142,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acd8b651f4964d949b8f6a46431ccfa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &651495145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994525848788385801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b623d47d95bb42a4cb4342f1d72f7d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &994525848831847136
