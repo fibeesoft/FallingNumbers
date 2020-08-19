@@ -17,8 +17,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    int currentTotal = 0;
+    int lastClickedButtonValue = 0;
+
+
     public void GetButtonValue(int btnValue)
     {
         print(btnValue);
+        lastClickedButtonValue = btnValue;
+        CalculateTotal();
+    }
+
+    void CalculateTotal()
+    {
+        currentTotal += lastClickedButtonValue;
+        print(currentTotal);
     }
 }
