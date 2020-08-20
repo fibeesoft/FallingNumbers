@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     }
     public UIManager uiManager;
     public GameObject menuPanel;
+    int targetPoints = 21;
     int currentTotal = 0;
     int lastClickedButtonValue = 0;
 
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SwitchMenuPanel();
+        UpdateUIValues();
     }
     public void SwitchMenuPanel()
     {
@@ -55,6 +57,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateUIValues()
     {
-        uiManager.DisplayUIValues(currentTotal);
+        uiManager.DisplayUIValues(currentTotal, targetPoints);
     }
 }

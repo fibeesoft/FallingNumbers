@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public Text txtCurrentTotal;
+    public Text txtTargetPoints;
     void Start()
     {
         
@@ -17,8 +18,9 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void DisplayUIValues(int currentTotal)
+    public void DisplayUIValues(int currentTotal, int targetTotal)
     {
         txtCurrentTotal.text = currentTotal.ToString();
+        txtTargetPoints.text = targetTotal.ToString();
     }
 }
