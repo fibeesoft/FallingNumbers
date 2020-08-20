@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -58,5 +60,28 @@ public class GameManager : MonoBehaviour
     void UpdateUIValues()
     {
         uiManager.DisplayUIValues(currentTotal, targetPoints);
+    }
+
+    void GameOver()
+    {
+        ReloadTheScene(1f);
+    }
+
+    void WinTheGame()
+    {
+
+    }
+
+    void ReloadTheScene(float delay)
+    {
+
+        StartCoroutine(ReloadScene());
+
+        IEnumerator ReloadScene()
+        {
+            yield return new WaitForSeconds(delay);
+
+            SceneManager.LoadScene(0);
+        }
     }
 }
