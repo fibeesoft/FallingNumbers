@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public Text txtCurrentTotal;
     public Text txtTargetPoints;
     public Text txtGameTimer;
+    public Text txtEvenOdd;
 
     public GameObject gameOverPanel;
     public GameObject winPanel;
@@ -22,10 +23,11 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void DisplayUIValues(int currentTotal, int targetTotal)
+    public void DisplayUIValues(int currentTotal, int targetTotal, bool isEven)
     {
         txtCurrentTotal.text = currentTotal.ToString();
         txtTargetPoints.text = targetTotal.ToString();
+        txtEvenOdd.text = isEven ? "EVEN" : "ODD";
     }
 
     public void DisplayTimerInUI(float time)

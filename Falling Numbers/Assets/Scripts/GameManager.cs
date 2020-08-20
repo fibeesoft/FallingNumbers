@@ -25,19 +25,44 @@ public class GameManager : MonoBehaviour
     int currentTotal = 0;
     float gameTimer = 20f;
     int lastClickedButtonValue = 0;
+    bool isBtnToBeEven;
 
 
     private void Start()
     {
         IsGameON = true;
         SwitchMenuPanel();
+        SetIfNumberShouldBeEven();
         UpdateUIValues();
+
     }
 
     private void Update()
     {
         CountDown();
     }
+
+
+    void SetIfNumberShouldBeEven()
+    {
+        if(currentTotal == targetPoints - 1)
+        {
+            isBtnToBeEven = false;
+        }
+        else
+        {
+            int rand = Random.Range(0, 2);
+            if(rand == 0)
+            {
+                isBtnToBeEven = true;
+            }
+            else
+            {
+                isBtnToBeEven = false;
+            }
+        }
+    }
+
 
     void CountDown()
     {
@@ -72,6 +97,7 @@ public class GameManager : MonoBehaviour
         print(btnValue);
         lastClickedButtonValue = btnValue;
         CalculateTotal();
+        SetIfNumberShouldBeEven();
         UpdateUIValues();
         CheckNumberOfPoints();
     }
@@ -84,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateUIValues()
     {
-        uiManager.DisplayUIValues(currentTotal, targetPoints);
+        uiManager.DisplayUIValues(currentTotal, targetPoints, isBtnToBeEven);
     }
 
     void CheckNumberOfPoints()
