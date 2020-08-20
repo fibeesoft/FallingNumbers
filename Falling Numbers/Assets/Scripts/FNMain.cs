@@ -22,6 +22,12 @@ public class FNMain : MonoBehaviour
     public void DoOnButtonClick()
     {
         GameManager.Instance.GetButtonValue(FallingNumberValue);
-        Destroy(gameObject);
+        DestroyNumber();
+    }
+
+    void DestroyNumber()
+    {
+        GetComponent<Animator>().SetTrigger("destroy");
+        Destroy(gameObject, 1f);
     }
 }
