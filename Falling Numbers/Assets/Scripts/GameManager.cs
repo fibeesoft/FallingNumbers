@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         if (IsGameON)
         {
             gameTimer -= Time.deltaTime;
-            print(gameTimer);
+            uiManager.DisplayTimerInUI(gameTimer);
 
             if(gameTimer < 0)
             {

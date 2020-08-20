@@ -7,6 +7,8 @@ public class UIManager : MonoBehaviour
 {
     public Text txtCurrentTotal;
     public Text txtTargetPoints;
+    public Text txtGameTimer;
+
     public GameObject gameOverPanel;
     public GameObject winPanel;
     void Start()
@@ -24,6 +26,11 @@ public class UIManager : MonoBehaviour
     {
         txtCurrentTotal.text = currentTotal.ToString();
         txtTargetPoints.text = targetTotal.ToString();
+    }
+
+    public void DisplayTimerInUI(float time)
+    {
+        txtGameTimer.text = time.ToString("f2");
     }
 
     public void SwitchGameOverPanel()
