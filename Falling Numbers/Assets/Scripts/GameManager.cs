@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
     }
-
+    public UIManager uiManager;
     public GameObject menuPanel;
     int currentTotal = 0;
     int lastClickedButtonValue = 0;
@@ -44,11 +44,17 @@ public class GameManager : MonoBehaviour
         print(btnValue);
         lastClickedButtonValue = btnValue;
         CalculateTotal();
+        UpdateUIValues();
     }
 
     void CalculateTotal()
     {
         currentTotal += lastClickedButtonValue;
         print(currentTotal);
+    }
+
+    void UpdateUIValues()
+    {
+        uiManager.DisplayUIValues(currentTotal);
     }
 }
