@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public Text txtCurrentTotal;
     public Text txtTargetPoints;
     public GameObject gameOverPanel;
+    public GameObject winPanel;
     void Start()
     {
         
@@ -34,6 +35,20 @@ public class UIManager : MonoBehaviour
         else
         {
             gameOverPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void SwitchWinPanel()
+    {
+        if (winPanel.activeInHierarchy)
+        {
+            winPanel.SetActive(false);
+        }
+        else
+        {
+            winPanel.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }

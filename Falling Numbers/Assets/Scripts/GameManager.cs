@@ -82,12 +82,12 @@ public class GameManager : MonoBehaviour
 
     void WinTheGame()
     {
-        print("You won");
+        uiManager.SwitchWinPanel();
     }
 
     public void ReloadTheScene(float delay)
     {
-
+        Time.timeScale = 1f;
         StartCoroutine(ReloadScene());
 
         IEnumerator ReloadScene()
