@@ -10,6 +10,7 @@ public class FNMain : MonoBehaviour
     {
         FallingNumberValue = Random.Range(1, 7);
         GetComponentInChildren<Text>().text = FallingNumberValue.ToString();
+        Destroy(gameObject, 8f);
     }
 
 
@@ -21,5 +22,6 @@ public class FNMain : MonoBehaviour
     public void DoOnButtonClick()
     {
         GameManager.Instance.GetButtonValue(FallingNumberValue);
+        Destroy(gameObject);
     }
 }

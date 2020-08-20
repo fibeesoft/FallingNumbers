@@ -7,7 +7,7 @@ public class FNSpawning : MonoBehaviour
     public GameObject fnPrefab;
     public Canvas canvas;
     Vector2 startingPosition;
-    float timeToSpawn = 1f;
+    float timeToSpawn = 0.8f;
     float timer = 0f;
     void Start()
     {
