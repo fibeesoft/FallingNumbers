@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
-        ReloadTheScene(1f);
+        uiManager.SwitchGameOverPanel();
     }
 
     void WinTheGame()
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         print("You won");
     }
 
-    void ReloadTheScene(float delay)
+    public void ReloadTheScene(float delay)
     {
 
         StartCoroutine(ReloadScene());

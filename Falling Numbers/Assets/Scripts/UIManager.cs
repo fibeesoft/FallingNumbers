@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public Text txtCurrentTotal;
     public Text txtTargetPoints;
+    public GameObject gameOverPanel;
     void Start()
     {
         
@@ -22,5 +23,17 @@ public class UIManager : MonoBehaviour
     {
         txtCurrentTotal.text = currentTotal.ToString();
         txtTargetPoints.text = targetTotal.ToString();
+    }
+
+    public void SwitchGameOverPanel()
+    {
+        if (gameOverPanel.activeInHierarchy)
+        {
+            gameOverPanel.SetActive(false);
+        }
+        else
+        {
+            gameOverPanel.SetActive(true);
+        }
     }
 }
