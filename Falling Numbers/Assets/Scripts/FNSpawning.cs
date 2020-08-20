@@ -9,9 +9,11 @@ public class FNSpawning : MonoBehaviour
     Vector2 startingPosition;
     float timeToSpawn = 0.8f;
     float timer = 0f;
+    float maxDistance;
     void Start()
     {
-        startingPosition = new Vector2(0f, 60f);
+        SetMaxDistance();
+        
     }
 
     void Update()
@@ -19,9 +21,16 @@ public class FNSpawning : MonoBehaviour
         CountDown();
     }
 
+
+    void SetMaxDistance()
+    {
+        maxDistance = Screen.width / 2 - fnPrefab.GetComponent<RectTransform>().sizeDelta.x / 2;
+    }
+
     void SpawnFN()
     {
         GameObject fn = Instantiate(fnPrefab, canvas.transform);
+        startingPosition = new Vector2(Random.Range(-maxDistance, maxDistance), 60f);
         fn.GetComponent<RectTransform>().anchoredPosition = startingPosition;
     }
 
