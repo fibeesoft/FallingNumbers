@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     float gameTimer = 20f;
     int lastClickedButtonValue = 0;
     bool isBtnToBeEven;
+    bool isBtnEven;
 
 
     private void Start()
@@ -94,14 +95,22 @@ public class GameManager : MonoBehaviour
 
     public void GetButtonValue(int btnValue)
     {
-        print(btnValue);
         lastClickedButtonValue = btnValue;
+        isBtnEven = btnValue % 2 == 0 ? true : false;
+        CheckIfOddEvenIsValid();
         CalculateTotal();
         SetIfNumberShouldBeEven();
         UpdateUIValues();
         CheckNumberOfPoints();
     }
 
+    void CheckIfOddEvenIsValid()
+    {
+        if(isBtnEven != isBtnToBeEven)
+        {
+            GameOver();
+        }
+    }
     void CalculateTotal()
     {
         currentTotal += lastClickedButtonValue;
