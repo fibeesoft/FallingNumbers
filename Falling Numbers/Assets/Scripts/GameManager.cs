@@ -17,17 +17,41 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
     }
+
+    public bool IsGameON { get; set; }
     public UIManager uiManager;
     public GameObject menuPanel;
     int targetPoints = 21;
     int currentTotal = 0;
+    float gameTimer = 20f;
     int lastClickedButtonValue = 0;
 
 
     private void Start()
     {
+        IsGameON = true;
         SwitchMenuPanel();
         UpdateUIValues();
+    }
+
+    private void Update()
+    {
+        CountDown();
+    }
+
+    void CountDown()
+    {
+        if (IsGameON)
+        {
+            gameTimer -= Time.deltaTime;
+            print(gameTimer);
+
+            if(gameTimer < 0)
+            {
+                GameOver();
+            }
+
+        }
     }
     public void SwitchMenuPanel()
     {
@@ -77,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     void GameOver()
     {
+        IsGameON = false;
         uiManager.SwitchGameOverPanel();
     }
 
