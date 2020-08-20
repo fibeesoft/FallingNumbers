@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         lastClickedButtonValue = btnValue;
         CalculateTotal();
         UpdateUIValues();
+        CheckNumberOfPoints();
     }
 
     void CalculateTotal()
@@ -62,6 +63,18 @@ public class GameManager : MonoBehaviour
         uiManager.DisplayUIValues(currentTotal, targetPoints);
     }
 
+    void CheckNumberOfPoints()
+    {
+        if(currentTotal == targetPoints)
+        {
+            WinTheGame();
+        }
+        else if (currentTotal > targetPoints)
+        {
+            GameOver();
+        }
+    }
+
     void GameOver()
     {
         ReloadTheScene(1f);
@@ -69,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     void WinTheGame()
     {
-
+        print("You won");
     }
 
     void ReloadTheScene(float delay)

@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtCurrentTotal: {fileID: 734426584}
-  txtTargetPoints: {fileID: 0}
+  txtTargetPoints: {fileID: 128645487}
 --- !u!1 &888545130
 GameObject:
   m_ObjectHideFlags: 0
