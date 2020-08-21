@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameON { get; set; }
     public UIManager uiManager;
-    public GameObject menuPanel;
+
     int targetPoints = 21;
     int currentTotal = 0;
     float gameTimer = 20f;
@@ -29,10 +29,12 @@ public class GameManager : MonoBehaviour
     bool isBtnEven;
 
 
+
     private void Start()
     {
+      
         IsGameON = true;
-        SwitchMenuPanel();
+
         SetIfNumberShouldBeEven();
         UpdateUIValues();
 
@@ -79,19 +81,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
-    public void SwitchMenuPanel()
-    {
-        if (menuPanel.activeInHierarchy)
-        {
-            menuPanel.SetActive(false);
-            Time.timeScale = 1f;
-        }
-        else
-        {
-            menuPanel.SetActive(true);
-            Time.timeScale = 0f;
-        }
-    }
+
 
     public void GetButtonValue(int btnValue)
     {
@@ -156,5 +146,15 @@ public class GameManager : MonoBehaviour
 
             SceneManager.LoadScene(0);
         }
+    }
+
+    public void StartTheGame()
+    {
+        uiManager.SwitchMenuPanel();
+    }
+
+    public void QuitTheGame()
+    {
+        Application.Quit();
     }
 }

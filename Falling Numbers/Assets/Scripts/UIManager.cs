@@ -9,12 +9,19 @@ public class UIManager : MonoBehaviour
     public Text txtTargetPoints;
     public Text txtGameTimer;
     public Text txtEvenOdd;
-
+    public GameObject menuPanel;
     public GameObject gameOverPanel;
     public GameObject winPanel;
+
+    public Button btnPlay;
+    public Button btnKeepPlaying;
+
+    bool isPauseMenuOn;
+
     void Start()
     {
-        
+        isPauseMenuOn = false;
+        SwitchMenuPanel();
     }
 
 
@@ -57,6 +64,35 @@ public class UIManager : MonoBehaviour
         else
         {
             winPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
+    public void TurnPauseMenuOn()
+    {
+        isPauseMenuOn = true;
+    }
+    public void SwitchMenuPanel()
+    {
+        if (menuPanel.activeInHierarchy)
+        {
+            menuPanel.SetActive(false);
+            Time.timeScale = 1f;
+            isPauseMenuOn = false;
+        }
+        else
+        {
+            if (isPauseMenuOn)
+            {
+                btnKeepPlaying.gameObject.SetActive(true);
+                btnPlay.gameObject.SetActive(false);
+            }
+            else
+            {
+                btnKeepPlaying.gameObject.SetActive(false);
+                btnPlay.gameObject.SetActive(true);
+            }
+            menuPanel.SetActive(true);
             Time.timeScale = 0f;
         }
     }
