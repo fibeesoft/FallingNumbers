@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public AudioClip[] backgroundSounds;
     bool isSoundOn;
+    public bool IsSoundOn { get { return isSoundOn; } }
     AudioSource audios;
     void Start()
     {
