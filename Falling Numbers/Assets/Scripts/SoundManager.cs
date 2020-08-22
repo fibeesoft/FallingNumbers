@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public AudioClip[] backgroundSounds;
+    public Sprite[] audioOnOffimages;
+    public Image soundOnOffImage;
     bool isSoundOn;
     public bool IsSoundOn { get { return isSoundOn; } }
     AudioSource audios;
@@ -37,10 +40,12 @@ public class SoundManager : MonoBehaviour
         if (isSoundOn)
         {
             isSoundOn = false;
+            soundOnOffImage.sprite = audioOnOffimages[0];
         }
         else
         {
             isSoundOn = true;
+            soundOnOffImage.sprite = audioOnOffimages[1];
         }
     }
 }
