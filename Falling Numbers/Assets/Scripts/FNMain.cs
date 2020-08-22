@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FNMain : MonoBehaviour
 {
     public int FallingNumberValue { get; set; }
+    public Sprite[] images;
     AudioSource audios;
     SoundManager soundManager;
     void Start()
@@ -13,7 +14,7 @@ public class FNMain : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
         audios = GetComponent<AudioSource>();
         FallingNumberValue = Random.Range(1, 7);
-        GetComponentInChildren<Text>().text = FallingNumberValue.ToString();
+        GetComponent<Image>().sprite = images[FallingNumberValue - 1];
         Destroy(gameObject, 8f);
     }
 
