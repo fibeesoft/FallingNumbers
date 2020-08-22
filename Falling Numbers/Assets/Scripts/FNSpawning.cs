@@ -24,13 +24,13 @@ public class FNSpawning : MonoBehaviour
 
     void SetMaxDistance()
     {
-        maxDistance = Screen.width / 2 - fnPrefab.GetComponent<RectTransform>().sizeDelta.x / 2;
+        maxDistance = canvas.GetComponent<RectTransform>().sizeDelta.x / 2 - fnPrefab.GetComponent<RectTransform>().sizeDelta.x / 2;
     }
 
     void SpawnFN()
     {
         GameObject fn = Instantiate(fnPrefab, canvas.transform);
-        startingPosition = new Vector2(Random.Range(-maxDistance, maxDistance), 60f);
+        startingPosition = new Vector2(Random.Range(-maxDistance, maxDistance), 10f);
         fn.GetComponent<RectTransform>().anchoredPosition = startingPosition;
     }
 
