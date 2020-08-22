@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public Font ourFont;
     public Text txtCurrentTotal;
     public Text txtTargetPoints;
     public Text txtGameTimer;
@@ -18,8 +19,10 @@ public class UIManager : MonoBehaviour
 
     bool isPauseMenuOn;
 
+
     void Start()
     {
+        ChangeTextFont();
         isPauseMenuOn = false;
         SwitchMenuPanel();
     }
@@ -28,6 +31,22 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         
+    }
+    void ChangeTextFont()
+    {
+        SwitchGameOverPanel();
+        SwitchMenuPanel();
+        SwitchWinPanel();
+
+        Text[] txtComponents = FindObjectsOfType<Text>();
+        foreach (var i in txtComponents)
+        {
+            i.font = ourFont;
+        }
+
+        SwitchGameOverPanel();
+        SwitchMenuPanel();
+        SwitchWinPanel();
     }
 
     public void DisplayUIValues(int currentTotal, int targetTotal, bool isEven)
