@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsGameON { get; set; }
     public UIManager uiManager;
-
+    public float GameTimer { get { return gameTimer; } }
     int targetPoints = 21;
     int currentTotal = 0;
     float gameTimer = 20f;

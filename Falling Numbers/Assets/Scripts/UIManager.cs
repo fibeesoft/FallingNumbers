@@ -13,20 +13,20 @@ public class UIManager : MonoBehaviour
     public GameObject menuPanel;
     public GameObject gameOverPanel;
     public GameObject winPanel;
-
+    public Image imgCircleTimer;
     public Button btnPlay;
     public Button btnKeepPlaying;
-
     bool isPauseMenuOn;
-
+    float startingTimerValue;
 
     void Start()
     {
         ChangeTextFont();
         isPauseMenuOn = false;
         SwitchMenuPanel();
-    }
+        startingTimerValue = GameManager.Instance.GameTimer;
 
+    }
 
     void Update()
     {
@@ -58,7 +58,8 @@ public class UIManager : MonoBehaviour
 
     public void DisplayTimerInUI(float time)
     {
-        txtGameTimer.text = time.ToString("f2");
+        imgCircleTimer.fillAmount = time / startingTimerValue;
+        txtGameTimer.text = time.ToString("00");
     }
 
     public void SwitchGameOverPanel()
